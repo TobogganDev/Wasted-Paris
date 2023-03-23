@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} &bull; WASTED PARIS{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_category', {'id' : product.category.id}) }}" class="product-back"> <i class="fa-solid fa-arrow-left"></i> {{ product.category.name }}</a>
+    <div class="product-wrapper">
+        <div class="product-left">
+            <img src="{{ product.pictureUrl }}" alt="">
+        </div>
+
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <ul>
+                <li>S</li>
+                <li>M</li>
+                <li>L</li>
+                <li>XL</li>
+            </ul>
+            <p>{{ product.price }} €</p>
+            <p>{{ product.stock }} in stock</p>
+            <a href="{{ path('app_cart_add', {'id' : product.id}) }}">Ajouter au panier</a>
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_shop') }}"><i class="fa-solid fa-arrow-left"></i> Back</a>
+
+    <h1>{{ category.name }}</h1>
+    <div class="card-wrapper">
+        {% for product in category.products %}
+            <a href="{{ path('app_product', {'id': product.id}) }}">
+                <div class="content">
+                    <div class="image-wrapper">
+                        <img src="{{ product.pictureUrl }}" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="info-left">
+                            <p>{{ product.name }}</p>
+                            <p>{{ product.price }} €</p>
+                        </div>
+
+                        <div class="info-right">
+                            {% if product.stock == 0 %}
+                                <p class="out-of-stock">Out of stock</p>
+                            {% else %}
+                                <p>{{ product.stock }} in stock</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

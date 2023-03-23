@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card-wrapper">
+    {% for category in categories %}
+        <a href="{{ path('app_category', {'id' : category.id}) }}">
+            <div class="content">
+                <div class="image-wrapper">
+                    <img src="{{ asset('./uploads/categories/' ~ category.pictureUrl) }}" alt="">
+                </div>
+                <p>{{ category.name }}</p>
+            </div>
+        </a>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+
